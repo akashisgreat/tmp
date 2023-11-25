@@ -1,3 +1,17 @@
+## ALl projects
+- ldr-based-led
+- led-buld-repair
+- pir-sensor-based-appliances
+- rfid-nfc-grocery-list-maker
+- ultrasonic-tank-water-level-with-alarm
+- voltage-regulators
+- water-on-pots-drip-irrigation
+
+
+
+
+
+
 ##  Screenshot_20231121-114714_YouTube.jpg
 ![Screenshot_20231121-114714_YouTube.jpg](./pir-sensor-based-appliances/Screenshot_20231121-114714_YouTube.jpg 'Screenshot_20231121-114714_YouTube.jpg')
 
