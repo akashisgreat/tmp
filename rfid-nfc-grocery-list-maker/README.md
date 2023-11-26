@@ -6,6 +6,8 @@
 #### `connection.jpg`
 ![connection.jpg](./pic/connection.jpg 'connection.jpg')
 
+---
+
 > ## Code Files
 
 #### `nfc_telegram_bot.ino`
@@ -100,6 +102,7 @@ String getname(String tagid) {
   return t;
 }
 ```
+---
 
 ## Budgets
 
@@ -111,6 +114,7 @@ String getname(String tagid) {
 | Tag * 20 | 400   |
 | SUM      | 900   |
 
+---
 
 ## Other Files
 
