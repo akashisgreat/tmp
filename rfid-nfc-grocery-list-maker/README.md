@@ -7,8 +7,6 @@
 ![RC522-RFID-Reader-Module-Pinout.jpg](pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
 
 <br>
-<br>
-
 > ## Budgets
 
 ####  price.csv
@@ -21,8 +19,6 @@
 
 
 <br>
-<br>
-
 > ## Code Files
 
 #### nfc_telegram_bot.ino
@@ -104,7 +100,7 @@ void loop() {
 
     bot.sendMessage(chatId, getname(tagId), "");
 
-    mfrc522udgets.PICC_HaltA();
+    mfrc522.PICC_HaltA();
     delay(200);
     indicator(0);
   }
@@ -119,8 +115,6 @@ String getname(String tagid) {
 ```
 
 <br>
-<br>
-
 > ## Other Files
 
 - [nfc_telegram_bot.ino.map](build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
