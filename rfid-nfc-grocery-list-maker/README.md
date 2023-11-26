@@ -121,12 +121,8 @@ String getname(String tagid) {
 
 > ## Other Files
 
-- [nfc_telegram_bot.ino.map](./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
+- [nfc_telegram_bot.ino.map](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
 
-./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map
-- [nfc_telegram_bot.ino.elf](./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf)
+- [nfc_telegram_bot.ino.elf](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf)
 
-./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf
-- [nfc_telegram_bot.ino.bin](./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin)
-
-./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin
+- [nfc_telegram_bot.ino.bin](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin)
