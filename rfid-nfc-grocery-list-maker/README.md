@@ -1,10 +1,10 @@
 > ## Images
 
 ####  connection.jpg
-![connection.jpg](pic/connection.jpg 'connection.jpg')
+![connection.jpg](./pic/connection.jpg 'connection.jpg')
 
 ####  RC522-RFID-Reader-Module-Pinout.jpg
-![RC522-RFID-Reader-Module-Pinout.jpg](pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
+![RC522-RFID-Reader-Module-Pinout.jpg](./pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
 
 <br>
 
@@ -116,12 +116,18 @@ String getname(String tagid) {
 }
 ```
 
+./code/nfc_telegram_bot/nfc_telegram_bot.ino
 <br>
 
 > ## Other Files
 
-- [nfc_telegram_bot.ino.map](build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
+./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map
+- [nfc_telegram_bot.ino.map](./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
 
-- [nfc_telegram_bot.ino.elf](build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf)
+./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map
+- [nfc_telegram_bot.ino.elf](./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf)
 
-- [nfc_telegram_bot.ino.bin](build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin)
+./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf
+- [nfc_telegram_bot.ino.bin](./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin)
+
+./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin
