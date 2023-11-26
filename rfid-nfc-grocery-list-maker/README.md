@@ -6,6 +6,8 @@
 ####  RC522-RFID-Reader-Module-Pinout.jpg
 ![RC522-RFID-Reader-Module-Pinout.jpg](pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
 
+
+
 > ## Budgets
 
 ####  price.csv
@@ -15,6 +17,8 @@
 | Rfid kit | 200   |
 | Tag * 20 | 400   |
 | SUM      | 900   |
+
+
 
 
 > ## Code Files
@@ -112,7 +116,9 @@ String getname(String tagid) {
 }
 ```
 
-## Other Files
+
+
+> ## Other Files
 
 - [nfc_telegram_bot.ino.map](build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
 
