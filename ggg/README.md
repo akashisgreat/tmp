@@ -1,9 +1,9 @@
 ## Images
 
-## `RC522-RFID-Reader-Module-Pinout.jpg`
+### `RC522-RFID-Reader-Module-Pinout.jpg`
 ![RC522-RFID-Reader-Module-Pinout.jpg](./pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
 
-## `connection.jpg`
+### `connection.jpg`
 ![connection.jpg](./pic/connection.jpg 'connection.jpg')
 
 ## Code Files
@@ -103,7 +103,7 @@ String getname(String tagid) {
 
 ## Budgets
 
-###  price.csv
+###  `price.csv`
 | ITEMS    | PRICE |
 | -------- | ----- |
 | Nodemcu  | 300   |
@@ -114,10 +114,8 @@ String getname(String tagid) {
 
 ## Other Files
 
-### [nfc_telegram_bot.ino.bin](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin)
+- [nfc_telegram_bot.ino.bin](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin)
 
-### [nfc_telegram_bot.ino.elf](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf)
+- [nfc_telegram_bot.ino.elf](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf)
 
-### [nfc_telegram_bot.ino.map](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
-
-### [.](./)
+- [nfc_telegram_bot.ino.map](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
