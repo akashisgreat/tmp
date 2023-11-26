@@ -1,14 +1,25 @@
-> ## Images
+> ## `Images`
 
-#### `RC522-RFID-Reader-Module-Pinout.jpg`
-![RC522-RFID-Reader-Module-Pinout.jpg](./pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
+####  connection.jpg
+![connection.jpg](pic/connection.jpg 'connection.jpg')
 
-#### `connection.jpg`
-![connection.jpg](./pic/connection.jpg 'connection.jpg')
+####  RC522-RFID-Reader-Module-Pinout.jpg
+![RC522-RFID-Reader-Module-Pinout.jpg](pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
 
-> ## Code Files
+> ## `Budgets`
 
-#### `nfc_telegram_bot.ino`
+####  price.csv
+| ITEMS    | PRICE |
+| -------- | ----- |
+| Nodemcu  | 300   |
+| Rfid kit | 200   |
+| Tag * 20 | 400   |
+| SUM      | 900   |
+
+
+. ## `Code Files`
+
+#### nfc_telegram_bot.ino
 ```
 #include <MFRC522.h>
 #include <SPI.h>
@@ -101,21 +112,10 @@ String getname(String tagid) {
 }
 ```
 
-## Budgets
+## `Other Files`
 
-####  `price.csv`
-| ITEMS    | PRICE |
-| -------- | ----- |
-| Nodemcu  | 300   |
-| Rfid kit | 200   |
-| Tag * 20 | 400   |
-| SUM      | 900   |
+### [nfc_telegram_bot.ino.map](build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
 
+### [nfc_telegram_bot.ino.elf](build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf)
 
-## Other Files
-
-- [nfc_telegram_bot.ino.bin](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin)
-
-- [nfc_telegram_bot.ino.elf](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.elf)
-
-- [nfc_telegram_bot.ino.map](./code/nfc_telegram_bot/build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
+### [nfc_telegram_bot.ino.bin](build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.bin)
