@@ -116,7 +116,6 @@ String getname(String tagid) {
 }
 ```
 
-./code/nfc_telegram_bot/nfc_telegram_bot.ino
 <br>
 
 > ## Other Files
