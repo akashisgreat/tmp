@@ -1,14 +1,14 @@
 > ## Images
 
-- #### `RC522-RFID-Reader-Module-Pinout.jpg`
+- `RC522-RFID-Reader-Module-Pinout.jpg`
 ![RC522-RFID-Reader-Module-Pinout.jpg](./pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
 
-- #### `connection.jpg`
+- `connection.jpg`
 ![connection.jpg](./pic/connection.jpg 'connection.jpg')
 
 > ## Code Files
 
-- #### `nfc_telegram_bot.ino`
+- `nfc_telegram_bot.ino`
 ```
 #include <MFRC522.h>
 #include <SPI.h>
@@ -103,7 +103,7 @@ String getname(String tagid) {
 
 ## Budgets
 
-- ####  `price.csv`
+-  `price.csv`
 | ITEMS    | PRICE |
 | -------- | ----- |
 | Nodemcu  | 300   |
