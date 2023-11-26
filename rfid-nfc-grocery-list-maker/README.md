@@ -1,10 +1,10 @@
 > ## Images
 
 ####  connection.jpg
-![connection.jpg](./pic/connection.jpg 'connection.jpg')
+![connection.jpg](./gchgf/pic/connection.jpg 'connection.jpg')
 
 ####  RC522-RFID-Reader-Module-Pinout.jpg
-![RC522-RFID-Reader-Module-Pinout.jpg](./pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
+![RC522-RFID-Reader-Module-Pinout.jpg](./gchgf/pic/RC522-RFID-Reader-Module-Pinout.jpg 'RC522-RFID-Reader-Module-Pinout.jpg')
 
 <br>
 
@@ -121,7 +121,6 @@ String getname(String tagid) {
 
 > ## Other Files
 
-./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map
 - [nfc_telegram_bot.ino.map](./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map)
 
 ./build/esp8266.esp8266.nodemcuv2/nfc_telegram_bot.ino.map
