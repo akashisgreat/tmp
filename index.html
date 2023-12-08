@@ -62,10 +62,10 @@
         }
 
         main {
-            width: 100%;
             padding: 1em;
             overflow: scroll;
             height: 100%;
+            width: fit-content;
         }
 
         table {
@@ -145,6 +145,12 @@
             top: 0;
             background: hsla(78, 78%, 39%, 0.549);
             z-index: -4;
+        }
+
+        @media (max-width: 770px){
+            main{
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -236,6 +242,8 @@
     async function updateTable() {
         for (const e of DATA) {
             const url = `https://www.moneycontrol.com/mc/widget/mfnavonetimeinvestment/get_chart_value?isin=${e.isin}&dur=${duration.value}`;
+            // const url = `https://script.google.com/macros/s/AKfycbzEIUrVIoL_ibMzkFbOoiyGZ1gpPHkEhLqZDCQSmqQS-5dHW8rP7euLO6kLk-uGFisi8g/exec?url=https://www.moneycontrol.com/mc/widget/mfnavonetimeinvestment/get_chart_value?isin=${e.isin}&dur=${duration.value}`;
+
 
             try {
                 const data = await fetchurl(url);
