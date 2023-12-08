@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAVs Price</title>
+    <script>
+        DATA = [
+            {
+                cname: "NIPPON INDIA MUTUAL FUND SMALL CAP FUND GROWTH PL - GROWTH OPEN ENDED",
+                isin: "INF204K01HY3"
+            },
+            {
+                cname: "QUANT MUTUAL FUND SMALL CAP FUND DIR GROWTH OPEN",
+                isin: "INF966L01689"
+            },
+            {
+                cname: "HDFC Small Cap Fund - Direct Plan - Growth",
+                isin: "INF179KA1RW5"
+            },
+            {
+                cname: "SBI Small Cap Fund - Regular Plan - Growth",
+                isin: "INF200K01T28"
+            }
+        ]
+
+    </script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1em;
+            height: 100%;
+        }
+
+        header {
+            padding: 1em;
+            text-align: center;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-decoration: underline;
+        }
+
+        main {
+            width: 100%;
+            padding: 1em;
+            overflow: scroll;
+            height: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15),
+                -1px 8px 20px 1px rgb(0 0 0 / 15%);
+            border-radius: 1em;
+            width: fit-content;
+            height: fit-content;
+
+        }
+
+        table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        table th {
+            padding: 15px;
+        }
+
+        table td {
+            padding: 12px 15px;
+        }
+
+        table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        th:nth-child(1) {
+            border-radius: .5em 0px 0px 0px;
+        }
+
+        th:nth-last-child(1) {
+            border-radius: 0px .5em 0px 0px;
+        }
+
+        td {
+            border-right: 1px solid rgba(0, 0, 0, 0.155);
+        }
+
+        #duration {
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 120px;
+            padding: 5px;
+        }
+
+        .graph {
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .graph span {
+            content: "";
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            background: hsla(78, 78%, 39%, 0.549);
+            z-index: -4;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">NAV Price</a> | <a href="future-market.html">Future market</a>
+        </nav>
+    </header>
+
+    <h2>NAV Price Records</h2>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Company Name &nbsp;
+                        <select name="duration" id="duration">
+                            <option value="1M">1 month</option>
+                            <option value="3M">3 Months</option>
+                            <option value="6M">6 Months</option>
+                            <option value="1Y">1 Year</option>
+                            <option value="2Y">2 Years</option>
+                            <option value="5Y">5 Years</option>
+                            <option value="ALL">All</option>
+                        </select>
+                    </th>
+                    <th>Min</th>
+                    <th>Average</th>
+                    <th>Max</th>
+                    <th>Current</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+
+        </table>
+    </main>
+
+</body>
+
+<script>
+    tbody = document.querySelector('tbody');
+
+    function getMax(arry) {
+        return arry.length ? Math.max(...arry) : 0;
+    }
+
+    function getMin(arry) {
+        return arry.length ? Math.min(...arry) : 0;
+    }
+
+    function getAvg(numbers) {
+        return numbers.length ? +((numbers.reduce((sum, value) => sum + value, 0) / numbers.length).toFixed(4)) : 0;
+    }
+
+    function getCurrent(arry) {
+        return arry.length ? arry[arry.length - 1] : 0;
+    }
+
+    function getposition(min, value, max) {
+        return ((value - min) / (max - min)) * 100;
+    }
+
+    function getColorBasedOnValue(value) {
+        const normalizedValue = Math.min(Math.max(value, 0), 100);
+        const red = 255 - (normalizedValue * 2.55);
+        const green = normalizedValue * 2.55;
+        return `rgb(${red}, ${green}, 0, 0.549)`;
+    }
+
+    async function fetchurl(url) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    }
+
+    async function usejson(data) {
+        const dataArray = data.g1.map(e => e.navValue);
+        return {
+            min: getMin(dataArray),
+            avg: getAvg(dataArray),
+            max: getMax(dataArray),
+            current: getCurrent(dataArray)
+        };
+    }
+
+    async function updateTable() {
+        for (const e of DATA) {
+            const url = `https://www.moneycontrol.com/mc/widget/mfnavonetimeinvestment/get_chart_value?isin=${e.isin}&dur=${duration.value}`;
+
+            try {
+                const data = await fetchurl(url);
+                const result = await usejson(data);
+
+                const graph_value = getposition(result.min, result.current, result.max);
+                const bg_color = getColorBasedOnValue(graph_value);
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td><a href="nav-history.html?cname=${e.cname}&isin=${e.isin}">${e.cname}</a></td>
+                <td>${result.min}</td>
+                <td>${result.avg}</td>
+                <td>${result.max}</td>
+                <td class="graph"><span style="right: calc(100% - ${graph_value}%);background-color:${bg_color};"></span>${result.current}</td>
+            `;
+                tbody.appendChild(row);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }
+
+
+
+    updateTable();
+
+    duration.onchange = () => {
+        tbody.innerHTML = '';
+        updateTable();
+    };
+
+
+</script>
+
+
+
+
+</html>

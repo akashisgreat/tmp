@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Line Plot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .graph {
+            height: 100px;
+            width: 250px;
+            margin: 30px;
+            position: relative;
+        }
+
+        .line {
+            width: 100%;
+            height: 5%;
+            top: 50%;
+            translate: 0 -50%;
+            position: absolute;
+            background: #ca0e0e;
+        }
+
+        .mark {
+            height: 15%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            position: relative;
+            background-color: rgb(0, 85, 255);
+            top: 50%;
+            translate: 0 -50%;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="graph">
+        <div class="line"></div>
+        <div class="mark"></div>
+    </div>
+
+    <style>
+        .loading-bar {
+            width: 50%;
+            height: 20px;
+            background-color: #e6e5e5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-bar::before {
+            /* --v: 10%; */
+            content: "";
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background: rgba(128, 128, 128, 0.83);
+            animation: loadingAnimation 2s linear infinite;
+            right: calc(100% - var(--v));
+        }
+
+        /*  */
+        
+    </style>
+
+<style>
+    tbody tr td:last-child {
+        position: relative;
+        overflow: hidden;
+    }
+
+    tbody tr td:last-child::before {
+        --value: 20%;
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        background: #a0a0a03d;
+        right: calc(100% - var(--value));
+    }
+</style>
+    </head>
+
+    <body>
+
+        <div class="loading-bar graph"></div>
+
+
+        <script>
+            // Values to plot
+            mark = document.querySelector('.mark')
+            r = document.querySelector('.loading-bar')
+
+            const values = [10, 50, 100];
+
+            function getposition(min, value, max) {
+                p = ((value - min) / (max - min)) * 100
+                return p + '%';
+            }
+
+            p = getposition(values[0], values[1], values[2])
+            console.log(p);
+            mark.style.left = p
+
+           
+            r.style.setProperty('--v', '10%');
+
+
+
+
+
+
+
+            // // Get the number line and marker elements
+            // const numberLine = document.getElementById('numberLine');
+            // const marker = document.getElementById('marker');
+
+            // Plot the values on the number line
+            //         values.forEach((value, index) => {
+            //             const percentage = (value - values[0]) / (values[2] - values[0]) * 100;
+            //             const markerPosition = percentage * (numberLine.offsetWidth / 100);
+
+            //             // Create a marker for each value
+            //             const valueMarker = document.createElement('div');
+            //             valueMarker.className = 'marker';
+            //             valueMarker.style.left = `${markerPosition}px`;
+
+            //             // Display value as a tooltip
+            //             valueMarker.setAttribute('title', `Value: ${value.toFixed(4)}\nPercentage: ${percentage.toFixed(2)}%`);
+
+            //             // Add the marker to the number line
+            //             numberLine.appendChild(valueMarker);
+            // console.log(value, index);
+            //             // If it's the last value, update the main marker position
+            //             if (index === values.length - 1) {
+            //                 marker.style.left = `${markerPosition}px`;
+            //             }
+            //         });
+
+
+
+
+
+
+
+
+        </script>
+
+    </body>
+
+</html>
+
+
+<!-- <script>
+
+    const tbody = document.querySelector('tbody')
+
+    function getMax(arry) {
+        if (arry.length === 0) {
+            return 0;
+        }
+        return Math.max(...arry);
+    }
+
+
+    function getMin(arry) {
+        if (arry.length === 0) {
+            return 0;
+        }
+        return Math.min(...arry);
+    }
+
+    function getAvg(numbers) {
+        if (numbers.length === 0) {
+            return 0;
+        }
+        const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        const average = sum / numbers.length;
+
+        const roundedAverage = +average.toFixed(4);
+        return roundedAverage;
+    }
+
+    function getCurrent(arry) {
+        const lastIndex = arry.length - 1;
+        return arry[lastIndex];
+    }
+
+    function fetchurl(url) {
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                usejson(data)
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+
+
+    function usejson(data) {
+        dataArray = []
+        data.g1.forEach(e => {
+            dataArray.push(e.navValue)
+        });
+        tbody.innerHTML += `
+                    <td>${getMin(dataArray)}</td>
+                    <td>${getAvg(dataArray)}</td>
+                    <td>${getMax(dataArray)}</td>
+                    <td>${getCurrent(dataArray)}</td>
+                </tr>`
+
+    }
+
+
+
+    DATA.forEach(e => {
+        tbody.innerHTML += ` <tr>
+                <td>${e.cname}</td>`
+
+        let url = `https://www.moneycontrol.com/mc/widget/mfnavonetimeinvestment/get_chart_value?isin=${e.isin}&dur=${duration.value}`
+
+        fetchurl(url)
+
+
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script> -->

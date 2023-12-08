@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Price</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    header {
+        padding: 1em;
+        text-align: center;
+    }
+
+    h1 {
+        text-decoration: underline;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    a {
+        color: unset;
+    }
+
+    tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    td {
+        padding: 12px 15px;
+        text-align: center;
+    }
+
+    tr {
+        border-bottom: 1px solid #dddddd;
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">NAV Price</a> | <a href="future-market-show.html">Future market</a>
+        </nav>
+    </header>
+    <h1>Tomorrow Market</h1>
+    <div id="date"></div>
+    <div id="output"></div>
+
+
+</body>
+<script>
+    const url = 'https://www.moneycontrol.com/stocksmarketsindia/';
+
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const hours = String((currentDate.getHours() % 12) || 12).padStart(2, '0');
+    const ampm = currentDate.getHours() >= 12 ? 'PM' : 'AM';
+    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+    const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+
+    date.innerHTML = `Today: ${hours}:${minutes}${ampm}, ${day}/${month}/${year}`;
+
+
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            // Create a temporary DOM element to parse the HTML
+            const tempElement = document.createElement('div');
+            tempElement.innerHTML = html;
+            table = tempElement.querySelector('#maindindi .marketatc_actcont .mctable1');
+
+            table.querySelectorAll('tbody tr').forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length >= 2) {
+                    cells[1].remove();
+                }
+            });
+
+            table = "<table> <tr><td>Company</td><td>₹</td><td>%</td></tr>" + table.querySelectorAll("tbody tr")[4].outerHTML + "</table>"
+
+
+            const outputElement = document.getElementById('output');
+            outputElement.outerHTML = table
+
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+</html>
